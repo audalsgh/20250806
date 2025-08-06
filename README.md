@@ -1,4 +1,7 @@
 # 33일차 - 경로계획 알고리즘
+https://blog.naver.com/economic_moat/223732988544<br>
+https://www.youtube.com/@dimitribert/videos<br>
+[day3_lecture.pdf](https://github.com/user-attachments/files/21610222/day3_lecture.pdf)
 
 ## 1. 완전한 지식 스펙트럼을 갖는 세계
 자율주행 경로 문제

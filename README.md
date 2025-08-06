@@ -15,6 +15,7 @@
 - 에이스타(A*) 알고리즘 = "지금까지 온 경로의 비용 + 앞으로 갈 경로의 비용의 합이 제일 적은 경로를 찾아냄." 다익스트라에 방향성이 더해진 것.
 
 -> 데이터 구조에따라 알고리즘의 논리가 결정됨.<br>
+
 <img width="635" height="677" alt="image" src="https://github.com/user-attachments/assets/b3bd60af-a4fb-496b-8ada-cc3bd7f31f70" />
 
 `dfs_recursive` 함수를 완성하세요. 이 함수는 자기 자신을 호출하여 이웃 노드를 탐색해야 합니다.

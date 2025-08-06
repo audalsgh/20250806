@@ -126,10 +126,10 @@ start_pos = (3, 0)  # 출발은 4번째 행의 1번 인덱스 '^'
 ```
 
 <img width="684" height="508" alt="image" src="https://github.com/user-attachments/assets/aac417cc-b7be-4f0d-8750-584c6dcd6e74" /><br>
--> 학습된 정책이 'G'까지 연결되었다면 20번안에 도착할수있으나, 
+**-> 학습된 정책이 'G'까지 연결되었다면 20번안에 도착할수있으나,**
 
 <img width="1447" height="488" alt="image" src="https://github.com/user-attachments/assets/764afda4-11b6-4de8-9ed0-21331d413ea0" /><br>
--> 'G'까지 연결되지 않은 정책 사용시, 루프에 빠지게된다.
+**-> 'G'까지 연결되지 않은 정책 사용시, 루프에 빠지게된다.**
 
 ```python
 # 정책 실행 시뮬레이터 구현 및 실행

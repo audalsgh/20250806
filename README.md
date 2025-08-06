@@ -79,8 +79,8 @@ def bellman_ford(edges, num_v, source):
         print(f"--- 반복 {i+1} ---")
         # [문제] 모든 엣지에 대해 반복
         for u, v, w in edges:
-            # 문제] 만약 노드 u까지의 현재 거리가 무한대가 아니고, 노드 u까지의 거리에 u에서 v로 가는 엣지의 가중치 w를 더한 값이 노드 v까지의 현재 거리보다 작다면
-            if distances[u] != float('inf') and distances[u] + w < distances[v]:
+            # 문제] 만약 노드 u까지의 현재 거리가 무한대가 아니고, "노드 u까지의 거리에, u에서 v로 가는 엣지의 가중치 w를 더한 값"이 노드 v까지의 현재 거리보다 작다면
+            if distances[u] != (float('inf')) and (distances[u] + w < distances[v]):
                 print(f"  (엣지 {u}->{v}) 노드 {v}의 거리 갱신: {distances[v]:.2f} -> {distances[u] + w:.2f}")
                 # 문제] 노드 v까지의 최단 거리를 이 새로운, 더 짧은 거리로 업데이트하라
                 distances[v] = distances[u] + w

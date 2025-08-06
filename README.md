@@ -67,7 +67,7 @@ def dfs_recursive_helper(grid, current, goal, visited, path_order):
 
 <img width="398" height="372" alt="image" src="https://github.com/user-attachments/assets/b4c853a5-6933-4919-80e9-652dd72d2fcf" />
 
--> 첫 반복에서 이미 모든 최단 거리가 수렴했고, 그 이후에는 더 짧은 경로가 없으므로 업데이트가 발생하지 않습니다.
+**-> 첫 반복에서 이미 모든 최단 거리가 수렴했고, 그 이후에는 더 짧은 경로가 없으므로 업데이트가 발생하지 않은 것.**
 
 ```python
 # 벨만-포드 함수 구현

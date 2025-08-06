@@ -53,12 +53,39 @@ def dfs_recursive_helper(grid, current, goal, visited, path_order):
 ## 2. 지역적 지식(Local)과 이론적 깊이
 이번엔 지도 일부만 아는 상황
 - 최단 경로 문제의 재귀적 정의 : u에서 목표 G까지 최단 경로 비용은, u의 모든 이웃 v에 대해 (u->v 비용 + v->G까지 최단 경로 비용) 중 최솟값.
-- 동적 계획법 (Dynamic Programming) : 부분 문제와 최적 부분 구조 문제에서, 재귀의 비효율성을 해결하는 기법
+- 동적 계획법 (Dynamic Programming) : 부분 문제와 최적 부분 구조 문제에서, 반복적 완화 과정을 통해 재귀의 비효율성을 해결하는 기법.
 - Top-Down (메모이제이션) = 재귀 구조는 유지하되, 한번 계산한 부분 문제의 답은 어딘가에 저장(메모이제이션, Memoization)해두고, 다시 필요하게 되면 계산없이 변수처럼 가져와 쓰는것.
 - Bottom-Up (타뷸레이션) =  가장 작은 부분 문제부터 차례로 답을 계산하여 테이블을 채워간 후, 더 큰 문제 해결에 사용하는 기법. "벨만-포드"도 여기에 속함.
 
 벨만 포드 알고리즘
-- 모든 노드로의 최단 경로는 최대 N-1개의 엣지로 이뤄져있다.
-- 루프를 한번 
+- 모든 노드로의 최단 경로는 최대 N-1개의 엣지(경로)로 이뤄져있다.
+- 이론적 기반은 벨만 방정식.
+- 벨만 방정식의 연속 시간 버전이 바로 "최적 제어 이론의 HJB방정식"임.
 
+<img width="398" height="372" alt="image" src="https://github.com/user-attachments/assets/b4c853a5-6933-4919-80e9-652dd72d2fcf" />
+
+-> 첫 반복에서 이미 모든 최단 거리가 수렴했고, 그 이후에는 더 짧은 경로가 없으므로 업데이트가 발생하지 않습니다.
+
+```python
+# 벨만-포드 함수 구현
+
+def bellman_ford(edges, num_v, source):
+    # 1. 거리 초기화 source는 0, 나머지는 ∞ (float('inf') 사용)
+    distances = [float('inf')] * num_v
+    distances[source] = 0
+
+    # 2. V-1 번 반복하며 엣지 완화
+    for i in range(num_v - 1):
+        print(f"--- 반복 {i+1} ---")
+        # [문제] 모든 엣지에 대해 반복
+        for u, v, w in edges:
+            # 문제] 만약 노드 u까지의 현재 거리가 무한대가 아니고, 노드 u까지의 거리에 u에서 v로 가는 엣지의 가중치 w를 더한 값이 노드 v까지의 현재 거리보다 작다면
+            if distances[u] != float('inf') and distances[u] + w < distances[v]:
+                print(f"  (엣지 {u}->{v}) 노드 {v}의 거리 갱신: {distances[v]:.2f} -> {distances[u] + w:.2f}")
+                # 문제] 노드 v까지의 최단 거리를 이 새로운, 더 짧은 거리로 업데이트하라
+                distances[v] = distances[u] + w
+        print(f"  현재 거리: {[f'{d:.2f}' for d in distances]}")
+
+    return distances
+```
 ## 3. 지식이 전혀 없는 세계

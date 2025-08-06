@@ -15,11 +15,11 @@
 -> 데이터 구조에따라 알고리즘의 논리가 결정됨.<br>
 <img width="635" height="677" alt="image" src="https://github.com/user-attachments/assets/b3bd60af-a4fb-496b-8ada-cc3bd7f31f70" />
 
-```python
 `dfs_recursive` 함수를 완성하세요. 이 함수는 자기 자신을 호출하여 이웃 노드를 탐색해야 합니다.
 - **Base Case (종료 조건):** 현재 노드가 목표이거나, 벽이거나, 이미 방문한 곳이면 탐색을 중단해야 합니다.
 - **Recursive Step (재귀 단계):** 유효한 이웃 노드에 대해 `dfs_recursive` 함수를 다시 호출합니다.
 
+```python
 def dfs_recursive_helper(grid, current, goal, visited, path_order):
     rows, cols = len(grid), len(grid[0])
     row, col = current
